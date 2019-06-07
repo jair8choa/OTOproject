@@ -19,13 +19,13 @@ public class Medico{
         this.rfc=" ";
         this.edad=0;
         this.borrado=false;
-        this.idMedico=0;
+        this.idMedico=1000 + R.nextInt(9000);
         this.idArea=0;
     }
     
-    public Medico(String n,String d,String r,int e,String nomarea)    {
+    public Medico(String n,String d,String r,int e,int id){
         ConsultasAreas consultaArea =  new ConsultasAreas();
-        Area objArea = consultaArea.getArea(nomarea);
+        Area objArea = consultaArea.getArea(id);
         this.nombre=n;
         this.direccion=d;
         this.rfc=r;
@@ -33,7 +33,7 @@ public class Medico{
         this.borrado=false;
         this.idMedico = 1000 + R.nextInt(9000);
         this.idArea = objArea.idArea;
-        consultaArea.Cerrar();
+        consultaArea.cerrar();
     }
     
     public boolean Eliminado()
@@ -100,13 +100,11 @@ public class Medico{
     {
         int id = 1000 + R.nextInt(9000);
         this.idMedico = id;
-        System.out.println("Nuevo id: "+id);
     }
 
     public void putIdMedico(int id) 
     {
         if(id < 1000){
-            System.out.println("Id invalido");
             this.putIdMedico();
         }else
             this.idMedico = id;
@@ -118,7 +116,7 @@ public class Medico{
     
     public String toString()
     {
-    	return this.idMedico+" - "+this.nombre+" - "+this.idArea; 
+    	return this.idMedico+" - "+this.nombre; 
     }
 }
 

@@ -26,18 +26,18 @@ public class Paciente {
 		this.edad=0;
 		this.sexo=' ';
 		this.rfc=" ";
-		this.idPaciente=0;
+		this.idPaciente= 1000 + R.nextInt(9000);
 		this.idMedico=0;
 		this.idArea=0;
 	}
 	
-	public Paciente(String n,String ts,String p,int e,char s,String r,String np)
+	public Paciente(String n,String ts,String p,int e,char s,String r,int idm)
 	{
 		ConsultasMedicos objConsultaMedico= new ConsultasMedicos();
-		Medico objMedico = objConsultaMedico.getMedico(np);
+		Medico objMedico = objConsultaMedico.getMedico(idm);
 		this.nombre=n;
 		this.tipoSangre=ts;
-		this.alta=true;
+		this.alta=false;
 		this.padecimiento=p;
 		this.edad=e;
 		this.sexo=s;
@@ -160,7 +160,11 @@ public class Paciente {
 	
 	public void putIdMedico(int idM)
 	{
+		ConsultasMedicos objConsultaMedico= new ConsultasMedicos();
+		Medico objMedico = objConsultaMedico.getMedico(idM);
 		this.idMedico = idM;
+		this.idArea = objMedico.getIdArea();
+		
 	}
 
 	public void putIdArea(int idA)

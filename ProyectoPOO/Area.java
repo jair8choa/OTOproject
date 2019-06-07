@@ -90,17 +90,15 @@ public class Area{
     {
         int id = 1000 + R.nextInt(9000);
         this.idArea = id;
-        System.out.println("Nuevo id: "+id);
     }
 
     public void putIdArea(int id) 
     {
         if(id < 1000){
             this.putIdArea();
-            System.out.println("Id invalido");
-        }else{
+        }else
             this.idArea = id;
-        }
+
     }
 
     public String toString()

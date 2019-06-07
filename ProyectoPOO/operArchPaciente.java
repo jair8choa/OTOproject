@@ -128,7 +128,7 @@ public class operArchPaciente {
 	public int numReg()
 	{
 		long tamBytes=0;
-		int nr=0;
+		int nr=-1;
 		try{
 			tamBytes=archD.length();
 			nr=(int)(tamBytes/Medico.tam);
@@ -142,5 +142,11 @@ public class operArchPaciente {
 		try{
 			archD.setLength(0L);
 		}catch(IOException e){}
+	}
+
+	public static void main(String[] args) {
+		operArchPaciente obj = new operArchPaciente("pacientes.txt");
+		obj.Abrir("rw");
+		obj.Grabar(new Paciente("Jesus Robles Lopez","O+","Psoriasis",22,'M',"JSL5676",6205),0);
 	}
 }

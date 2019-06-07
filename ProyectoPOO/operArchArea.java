@@ -125,13 +125,10 @@ public class operArchArea {
 			archD.setLength(0L);
 		}catch(IOException e){}
 	}
+
 	public static void main(String[] args) {
-		operArchArea objArch = new operArchArea("areas.txt");
-		objArch.Abrir("rw");
-		System.out.println(objArch.numReg());
-		objArch.Grabar(new Area("Cardiologia","Corazon",3,"lopez r 78"),objArch.numReg());
-		System.out.println(objArch.numReg());
-		objArch.Grabar(new Area("Neurologia","Cerebro",5,"lopez r 78"),objArch.numReg());
-		System.out.println(objArch.numReg());
+		operArchArea obj = new operArchArea("areas.txt");
+		obj.Abrir("rw");
+		obj.Grabar(new Area("Cardiologia","Tratamiento del Corazon", 4, "Zapata 55"));
 	}
 }

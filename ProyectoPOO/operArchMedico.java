@@ -1,6 +1,7 @@
 import java.io.*;
 public class operArchMedico {
-
+	
+	private static final int _7165 = 7165;
 	RandomAccessFile archD=null;
 	String nomRuta;
 	
@@ -113,7 +114,7 @@ public class operArchMedico {
 	public int numReg()
 	{
 		long tamBytes=0;
-		int nr=0;
+		int nr=-1;
 		try{
 			tamBytes=archD.length();
 			nr=(int)(tamBytes/Medico.tam);
@@ -127,5 +128,12 @@ public class operArchMedico {
 		try{
 			archD.setLength(0L);
 		}catch(IOException e){}
+	}
+
+	public static void main(String[] args) {
+		operArchMedico obj = new operArchMedico("medicos.txt");
+		obj.Abrir("rw");
+		obj.Grabar(new Medico("Jose Antonio Lopez","Allende 45","JALC657",65,7165),0);
+
 	}
 }
